@@ -9,7 +9,7 @@ from collections import defaultdict
 import numpy as np
 
 sys.path.insert(0, './resources/')
-import constant
+from resources import constant
 import torch
 
 def to_torch(feed_dict):

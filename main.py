@@ -14,11 +14,12 @@ import models
 from data_utils import to_torch
 from eval_metric import mrr
 from model_utils import get_gold_pred_str, get_eval_string, get_output_index
-from tensorboard import SummaryWriter
+from tensorboardX import SummaryWriter
 from torch import optim
 
 sys.path.insert(0, './resources')
-import config_parser, constant, eval_metric
+import config_parser, eval_metric
+from resources import constant
 
 
 class TensorboardWriter:

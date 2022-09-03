@@ -7,7 +7,7 @@ from torch.autograd import Variable
 
 import eval_metric
 sys.path.insert(0, './resources')
-import constant
+from resources import constant
 
 sigmoid_fn = nn.Sigmoid()
 

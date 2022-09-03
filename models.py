@@ -6,7 +6,7 @@ from model_utils import sort_batch_by_length, SelfAttentiveSum, SimpleDecoder, M
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 
 sys.path.insert(0, './resources')
-import constant
+from resources import constant
 
 class Model(nn.Module):
   def __init__(self, args, answer_num):
