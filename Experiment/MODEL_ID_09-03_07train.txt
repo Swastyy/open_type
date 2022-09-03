@@ -1,0 +1,70 @@
+09-03 07:38 root         INFO     Namespace(add_crowd=True, batch_size=1000, data_setup='joint', dev_data='ontonotes/g_dev.json', dim_hidden=100, enhanced_mention=True, eval_batch_size=1998, eval_data='ontonotes/g_test.json', eval_period=500, goal='open', gpu=False, input_dropout=0.2, learning_rate=0.001, load=False, log_period=1000, lstm_type='single', mention_dropout=0.5, mode='train', model_id='MODEL_ID', multitask=True, num_epoch=5000, only_crowd=False, reload_model_name=None, remove_el=False, remove_open=False, rnn_dim=100, save_period=1000, seed=1888, train_data='ontonotes/augmented_train.json')
+09-03 07:38 root         INFO     Found 0 shards at /content/open_type/dataset/distant_supervision/headwords.json
+09-03 07:38 root         INFO     Found 0 shards at /content/open_type/dataset/distant_supervision/headword_dev.json
+09-03 07:38 root         INFO     Found 1 shards at /content/open_type/dataset/distant_supervision/el_dev.json
+09-03 07:38 root         INFO     Found 0 shards at /content/open_type/dataset/distant_supervision/el_train.json
+09-03 07:38 root         INFO     Found 1 shards at /content/open_type/dataset/crowd/train_m.json
+09-03 07:38 root         INFO     Found 1 shards at /content/open_type/dataset/crowd/dev.json
+09-03 07:38 root         INFO     0->Model(
+  (mention_dropout): Dropout(p=0.5, inplace=False)
+  (input_dropout): Dropout(p=0.2, inplace=False)
+  (head_attentive_sum): SelfAttentiveSum(
+    (key_maker): Linear(in_features=300, out_features=1, bias=False)
+    (key_rel): ReLU()
+    (key_output): Linear(in_features=1, out_features=1, bias=False)
+    (key_softmax): Softmax(dim=None)
+  )
+  (cnn): CNN(
+    (conv1d): Conv1d(100, 50, kernel_size=(5,), stride=(1,))
+    (char_W): Embedding(115, 100)
+  )
+  (attentive_sum): SelfAttentiveSum(
+    (key_maker): Linear(in_features=200, out_features=100, bias=False)
+    (key_rel): ReLU()
+    (key_output): Linear(in_features=100, out_features=1, bias=False)
+    (key_softmax): Softmax(dim=None)
+  )
+  (lstm): LSTM(350, 100, batch_first=True, bidirectional=True)
+  (token_mask): Linear(in_features=4, out_features=50, bias=True)
+  (loss_func): BCEWithLogitsLoss()
+  (sigmoid_fn): Sigmoid()
+  (decoder): MultiSimpleDecoder(
+    (linear): Linear(in_features=550, out_features=10331, bias=False)
+  )
+)
+09-03 07:38 root         INFO     1->Dropout(p=0.5, inplace=False)
+09-03 07:38 root         INFO     2->Dropout(p=0.2, inplace=False)
+09-03 07:38 root         INFO     3->SelfAttentiveSum(
+  (key_maker): Linear(in_features=300, out_features=1, bias=False)
+  (key_rel): ReLU()
+  (key_output): Linear(in_features=1, out_features=1, bias=False)
+  (key_softmax): Softmax(dim=None)
+)
+09-03 07:38 root         INFO     4->Linear(in_features=300, out_features=1, bias=False)
+09-03 07:38 root         INFO     5->ReLU()
+09-03 07:38 root         INFO     6->Linear(in_features=1, out_features=1, bias=False)
+09-03 07:38 root         INFO     7->Softmax(dim=None)
+09-03 07:38 root         INFO     8->CNN(
+  (conv1d): Conv1d(100, 50, kernel_size=(5,), stride=(1,))
+  (char_W): Embedding(115, 100)
+)
+09-03 07:38 root         INFO     9->Conv1d(100, 50, kernel_size=(5,), stride=(1,))
+09-03 07:38 root         INFO     10->Embedding(115, 100)
+09-03 07:38 root         INFO     11->SelfAttentiveSum(
+  (key_maker): Linear(in_features=200, out_features=100, bias=False)
+  (key_rel): ReLU()
+  (key_output): Linear(in_features=100, out_features=1, bias=False)
+  (key_softmax): Softmax(dim=None)
+)
+09-03 07:38 root         INFO     12->Linear(in_features=200, out_features=100, bias=False)
+09-03 07:38 root         INFO     13->ReLU()
+09-03 07:38 root         INFO     14->Linear(in_features=100, out_features=1, bias=False)
+09-03 07:38 root         INFO     15->Softmax(dim=None)
+09-03 07:38 root         INFO     16->LSTM(350, 100, batch_first=True, bidirectional=True)
+09-03 07:38 root         INFO     17->Linear(in_features=4, out_features=50, bias=True)
+09-03 07:38 root         INFO     18->BCEWithLogitsLoss()
+09-03 07:38 root         INFO     19->Sigmoid()
+09-03 07:38 root         INFO     20->MultiSimpleDecoder(
+  (linear): Linear(in_features=550, out_features=10331, bias=False)
+)
+09-03 07:38 root         INFO     21->Linear(in_features=550, out_features=10331, bias=False)
