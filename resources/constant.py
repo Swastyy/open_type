@@ -11,9 +11,9 @@ def load_vocab_dict(vocab_file_name, vocab_max_size=None, start_vocab_count=None
       file_content = dict(zip(text, range(0, len(text))))
   return file_content
 
-FILE_ROOT = '/content/open_type/dataset/'
-GLOVE_VEC = '/content/open_type/Experiment/pretrainedVector/glove.840B.300d.txt'
-EXP_ROOT = '/content/open_type/Experiment'
+FILE_ROOT = '/content/drive/MyDrive/NLP'
+GLOVE_VEC = '/content/drive/MyDrive/NLP/glove.840B.300d.txt'
+EXP_ROOT = '/content/drive/MyDrive/NLP/result/'
 
 ANSWER_NUM_DICT = {"open": 10331, "onto":89, "wiki": 4600, "kb":130, "gen":9}
 
