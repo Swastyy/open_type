@@ -1,5 +1,6 @@
 import numpy as np
-import json, sys, pickle
+import json, sys
+import pickle as cPickle
 from eval_metric import mrr, macro
 
 def stratify(all_labels, types):
@@ -13,7 +14,9 @@ def stratify(all_labels, types):
           [l for l in all_labels if (not l in coarse) and (not l in fine)])
 
 def get_mrr(pred_fname):
-  dicts = pickle.load(open(pred_fname, "rb"))
+  #dicts = pickle.load(open(pred_fname, "rb"))
+  with open(pred_fname, "rb") as h:
+    dicts = cPickle.load(h)
   mrr_value = mrr(dicts['pred_dist'], dicts['gold_id_array'])
   return mrr_value
 
@@ -76,7 +79,7 @@ def visualize(gold_pred_fname, original_fname, type_fname):
 if __name__ == '__main__':
   gold_pred_str_fname = sys.argv[1]+'.json'
   mrr_fname = sys.argv[1]+'.p'
-  type_fname = './resources/types.txt'
+  type_fname = '/content/open_type/resources/types.txt'
   # compute mrr
   mrr_value = get_mrr(mrr_fname)
   print("MRR {0:.4f}".format(mrr_value))
